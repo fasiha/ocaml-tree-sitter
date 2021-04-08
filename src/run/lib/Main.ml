@@ -176,6 +176,7 @@ let parse_and_dump
   let some_success =
     match res.program with
     | Some matched_tree ->
+        print_endline "---";
         dump_tree matched_tree;
         true
     | None ->
