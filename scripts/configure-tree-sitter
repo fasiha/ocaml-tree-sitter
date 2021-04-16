@@ -17,7 +17,8 @@ error() {
 }
 
 which pkg-config > /dev/null || error "'pkg-config' command not found."
-pkg-config tree-sitter || error "The tree-sitter library can't be found.
+echo HELLO WORLD PKG_CONFIG_PATH $PKG_CONFIG_PATH # make sure you ran `export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH` ?
+pkg-config --libs-only-L tree-sitter || error "The tree-sitter library can't be found.
 Consider installing it with './scripts/install-tree-sitter-lib'."
 
 if [[ -z "${TREESITTER_INCDIR+x}" ]]; then
